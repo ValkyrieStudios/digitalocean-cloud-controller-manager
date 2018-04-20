@@ -171,7 +171,7 @@ func (l *loadbalancers) EnsureLoadBalancer(clusterName string, service *v1.Servi
 		return nil, err
 	}
 
-	lbStatus, exists, err = l.GetLoadBalancer(clusterName, service)
+	lbStatus, _, err = l.GetLoadBalancer(clusterName, service)
 	if err != nil {
 		return nil, err
 	}

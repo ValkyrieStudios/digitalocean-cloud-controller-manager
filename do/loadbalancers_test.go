@@ -94,7 +94,7 @@ func Test_getAlgorithm(t *testing.T) {
 		algorithm string
 	}{
 		{
-			"algorithm should be least_connection",
+			"algorithm should be least_connections",
 			&v1.Service{
 				ObjectMeta: metav1.ObjectMeta{
 					Name: "test",
@@ -148,7 +148,7 @@ func Test_getAlgorithm(t *testing.T) {
 		t.Run(test.name, func(t *testing.T) {
 			algorithm := getAlgorithm(test.service)
 			if algorithm != test.algorithm {
-				t.Error("unexpected algoritmh")
+				t.Error("unexpected algorithm")
 				t.Logf("expected: %q", test.algorithm)
 				t.Logf("actual: %q", algorithm)
 			}
@@ -163,7 +163,7 @@ func Test_getTLSPassThrough(t *testing.T) {
 		tlsPassThrough bool
 	}{
 		{
-			"TLS pass through true",
+			"TLS passthrough true",
 			&v1.Service{
 				ObjectMeta: metav1.ObjectMeta{
 					Name: "test",
@@ -176,7 +176,7 @@ func Test_getTLSPassThrough(t *testing.T) {
 			true,
 		},
 		{
-			"TLS pass through false",
+			"TLS passthrough false",
 			&v1.Service{
 				ObjectMeta: metav1.ObjectMeta{
 					Name: "test",
@@ -189,7 +189,7 @@ func Test_getTLSPassThrough(t *testing.T) {
 			false,
 		},
 		{
-			"TLS pass through not defined",
+			"TLS passthrough not defined",
 			&v1.Service{
 				ObjectMeta: metav1.ObjectMeta{
 					Name:        "test",
@@ -200,7 +200,7 @@ func Test_getTLSPassThrough(t *testing.T) {
 			false,
 		},
 		{
-			"Service annotatiosn nil",
+			"Service annotations nil",
 			&v1.Service{
 				ObjectMeta: metav1.ObjectMeta{
 					Name: "test",
@@ -221,7 +221,6 @@ func Test_getTLSPassThrough(t *testing.T) {
 			}
 		})
 	}
-
 }
 
 func Test_getCertificateID(t *testing.T) {
@@ -338,7 +337,7 @@ func Test_getProtocol(t *testing.T) {
 			nil,
 		},
 		{
-			"tcp protocol specified",
+			"TCP protocol specified",
 			&v1.Service{
 				ObjectMeta: metav1.ObjectMeta{
 					Name: "test",
@@ -968,7 +967,6 @@ func Test_buildHealthCheck(t *testing.T) {
 			}
 		})
 	}
-
 }
 
 func Test_buildStickySessions(t *testing.T) {
